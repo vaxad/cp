@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/varad/OneDrive/Desktop/projects/cp/00_start",
-      "program": "c:/Users/varad/OneDrive/Desktop/projects/cp/00_start/build/Debug/outDebug",
+      "cwd": "c:/Users/varad/OneDrive/Desktop/projects/cp/00_dsa",
+      "program": "c:/Users/varad/OneDrive/Desktop/projects/cp/00_dsa/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
