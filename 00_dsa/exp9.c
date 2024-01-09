@@ -56,6 +56,20 @@ int fibonacciSearch(int arr[], int key, int n) {
     return -1; // Key not found
 }
 
+// Function to perform bubble sort on an array
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            // Swap if the element found is greater than the next element
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
 // Selection Sort
 void selectionSort(int arr[], int n) {
     int i, j, minIndex, temp;
@@ -154,12 +168,36 @@ int partition(int arr[], int low, int high) {
     return i + 1;
 }
 
+int quickPart(int arr[], int low, int high){
+    int l = low, h = high;
+    int pivot = arr[l],temp;
+    while(l<h){
+        do{
+            l++;
+        }
+        while(pivot>=arr[l] && l<=h);
+        do{
+            h--;
+        }
+        while(pivot<arr[h] && h>=l);
+        if(l<h){
+            temp = arr[l];
+            arr[l] = arr[h];
+            arr[h] = temp;
+        }
+    }
+    temp = arr[low];
+    arr[low] = arr[h];
+    arr[h] = temp;
+    return h;
+}
+
 void quickSort(int arr[], int low, int high) {
     if (low < high) {
-        int pi = partition(arr, low, high);
+        int pi = quickPart(arr, low, high);
 
         // Recursively sort elements before and after partition
-        quickSort(arr, low, pi - 1);
+        quickSort(arr, low, pi );
         quickSort(arr, pi + 1, high);
     }
 }

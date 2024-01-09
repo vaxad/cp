@@ -18,12 +18,12 @@ Term* createTerm(int coefficient, int exponent) {
 }
 
 // Function to add a term to the polynomial
-void addTerm(Term** polynomial, int coefficient, int exponent) {
+void addTerm(Term* polynomial, int coefficient, int exponent) {
     Term* newTerm = createTerm(coefficient, exponent);
-    if (*polynomial == NULL) {
-        *polynomial = newTerm;
+    if (polynomial == NULL) {
+        polynomial = newTerm;
     } else {
-        Term* current = *polynomial;
+        Term* current = polynomial;
         while (current->next != NULL) {
             current = current->next;
         }
@@ -53,26 +53,26 @@ Term* addPolynomials(Term* poly1, Term* poly2) {
     Term* result = NULL;
     while (poly1 != NULL && poly2 != NULL) {
         if (poly1->exponent > poly2->exponent) {
-            addTerm(&result, poly1->coefficient, poly1->exponent);
+            addTerm(result, poly1->coefficient, poly1->exponent);
             poly1 = poly1->next;
         } else if (poly1->exponent < poly2->exponent) {
-            addTerm(&result, poly2->coefficient, poly2->exponent);
+            addTerm(result, poly2->coefficient, poly2->exponent);
             poly2 = poly2->next;
         } else {
             int sum = poly1->coefficient + poly2->coefficient;
             if (sum != 0) {
-                addTerm(&result, sum, poly1->exponent);
+                addTerm(result, sum, poly1->exponent);
             }
             poly1 = poly1->next;
             poly2 = poly2->next;
         }
     }
     while (poly1 != NULL) {
-        addTerm(&result, poly1->coefficient, poly1->exponent);
+        addTerm(result, poly1->coefficient, poly1->exponent);
         poly1 = poly1->next;
     }
     while (poly2 != NULL) {
-        addTerm(&result, poly2->coefficient, poly2->exponent);
+        addTerm(result, poly2->coefficient, poly2->exponent);
         poly2 = poly2->next;
     }
     return result;
@@ -113,9 +113,9 @@ int main() {
     Term* poly2 = NULL;
 
     // Adding terms to the first polynomial
-    addTerm(&poly1, 5, 4);
-    addTerm(&poly1, 3, 2);
-    addTerm(&poly1, 2, 1);
+    addTerm(poly1, 5, 4);
+    addTerm(poly1, 3, 2);
+    addTerm(poly1, 2, 1);
 
     // Adding terms to the second polynomial
     addTerm(&poly2, 4, 3);

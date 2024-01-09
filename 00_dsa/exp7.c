@@ -52,11 +52,8 @@ struct Node* deleteNode(struct Node* root, int key) {
             free(root);
             return temp;
         }
-
         struct Node* temp = minValueNode(root->right);
-
         root->key = temp->key;
-
         root->right = deleteNode(root->right, temp->key);
     }
     return root;
@@ -65,17 +62,16 @@ struct Node* deleteNode(struct Node* root, int key) {
 struct Node* search(struct Node* root, int key) {
     if (root == NULL || root->key == key)
         return root;
-
     if (key < root->key)
         return search(root->left, key);
-
     return search(root->right, key);
 }
 
 void inorderTraversal(struct Node* root) {
     if (root != NULL) {
-        inorderTraversal(root->left);
         printf("%d ", root->key);
+
+        inorderTraversal(root->left);
         inorderTraversal(root->right);
     }
 }

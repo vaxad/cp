@@ -13,13 +13,14 @@ void enqueue(int item) {
     if (front == -1) {
         front = 0;
     }
-    rear++;
-    queue[rear] = item;
+    queue[++rear] = item;
     printf("%d enqueued to the queue.\n", item);
 }
 
 void dequeue() {
     if (front == -1 || front > rear) {
+        front=-1;
+        rear=-1;
         printf("Queue is empty. Cannot dequeue.\n");
         return;
     }

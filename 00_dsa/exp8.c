@@ -43,7 +43,7 @@ void BFS(struct Graph* graph, int startVertex) {
         printf("%d ", currentVertex);
 
         for (int i = 0; i < graph->vertices; i++) {
-            if (graph->adjMatrix[currentVertex][i] && !visited[i]) {
+            if (graph->adjMatrix[currentVertex][i]==1 && visited[i] != true) {
                 visited[i] = true;
                 queue[rear++] = i;
             }
@@ -52,25 +52,33 @@ void BFS(struct Graph* graph, int startVertex) {
     printf("\n");
 }
 
-// Function to perform Depth First Search (DFS)
-void DFSUtil(struct Graph* graph, int vertex, bool visited[]) {
-    visited[vertex] = true;
-    printf("%d ", vertex);
-
-    for (int i = 0; i < graph->vertices; i++) {
-        if (graph->adjMatrix[vertex][i] && !visited[i]) {
-            DFSUtil(graph, i, visited);
-        }
-    }
-}
-
 void DFS(struct Graph* graph, int startVertex) {
     bool visited[MAX_SIZE] = { false };
-
-    printf("DFS traversal: ");
-    DFSUtil(graph, startVertex, visited);
+    int stack[MAX_SIZE];
+    int top = 0;
+    printf("BFS traversal: ");
+    visited[startVertex] = true;
+    int currentVertex = startVertex;
+    while (top!=-1) {
+        int newVertex=-1;
+        printf("%d ", currentVertex);
+        for (int i = 0; i < graph->vertices; i++) {
+            if (graph->adjMatrix[currentVertex][i]==1 && visited[i] != true) {
+                visited[i] = true;
+                stack[top++] = currentVertex;
+                currentVertex=i;
+                break;
+            }
+            if(i==graph->vertices-1){
+                i=0;
+                currentVertex=stack[top--];
+            }
+        }
+    }
     printf("\n");
 }
+
+
 
 int main() {
     struct Graph graph;
