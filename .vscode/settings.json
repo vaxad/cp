@@ -60,6 +60,8 @@
   "files.associations": {
     "stdio.h": "c",
     "barrier": "c",
-    "bitset": "c"
+    "bitset": "c",
+    "ostream": "cpp",
+    "random": "cpp"
   }
 }
