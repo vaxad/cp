@@ -99,7 +99,7 @@ int main(){
         p[i]=i;
     }
 
-    fcfs(n,bt,at,p, ct,tat,wt);
-    //  sjf(n,bt,at,p,ct,tat,wt);
+    // fcfs(n,bt,at,p, ct,tat,wt);
+     sjf(n,bt,at,p,ct,tat,wt);
     return 0;
 }

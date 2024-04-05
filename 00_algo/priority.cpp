@@ -69,6 +69,17 @@ void priority(int n, int bt[], int at[], int p[], int ct[], int tat[], int wt[],
         }
         sortPriority(at,bt,p,time,n,pt,tempBt);
     }
+    int tatsum=0, wtsum=0;
+    cout<<endl;
+    // for(int i=0;i<n;i++){
+    //   tat[i] = time - at[i];
+    //   tatsum+=tat[i];
+    //   wt[i] = tat[i] - bt[i];
+    //   wtsum+=wt[i];
+    //   cout<<"tat: "<<tat[i]<<" wt: "<<wt[i]<<endl;
+    // }
+    // cout<<"\naverage waiting time: "<<(float)wtsum/(float)n<<"\taverage tat: "<<(float)tatsum/(float)n<<endl;
+    // cout<<"Execution ended\n";
     cout<<"Execution ended\n";
 }
 int main(){
