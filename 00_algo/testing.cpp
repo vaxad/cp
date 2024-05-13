@@ -74,7 +74,14 @@ int justGreater(vector<int> v, auto ind){
 
         }
     }
+    int xorVector(vector<int> &nums){
+        int x=0;
+        for(auto i:nums){
+            x=x^i;
+            cout<<"num: "<<i<<" xor: "<<x<<endl;
+        }
 
+    }
     void makeRowZero(vector<int>& row){
         cout<<"making this row zero: ";
         printVector(row);
@@ -131,8 +138,10 @@ void testVector(){
     // printVector(v);
     // nextPermutation(v);
     // printVector(v);
-    vector<vector<int>> matrix = {{1,1,1},{1,0,1},{1,1,1}};
-    setZeroes(matrix);
+    // vector<vector<int>> matrix = {{1,1,1},{1,0,1},{1,1,1}};
+    // setZeroes(matrix);
+    vector<int> v {1,2,3,2,4,5,6,4};
+    xorVector(v);
 }
 
 void printMap(map<int,int> &m){
