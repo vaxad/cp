@@ -20,7 +20,6 @@ void sortOnEndTime(struct Activity a[100], int n){
 
 void activitySelection(struct Activity a[100], int n){
     sortOnEndTime(a, n);
-
     int prev=a[0].start;
     for(int i=0;i<n;i++){
         if(a[i].start>=prev){

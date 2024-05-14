@@ -11,7 +11,7 @@ int max(int a, int b){
 void sortOnPW(struct Item it[100], int n){
     for(int i=0;i<n;i++){
         float ri = (float)it[i].p/(float)it[i].w; 
-        for(int j=0;j<n;j++){
+        for(int j=i+1;j<n;j++){
             float rj = (float)it[j].p/(float)it[j].w; 
             if(rj<ri){
                 struct Item temp = it[i];
@@ -37,6 +37,7 @@ int fractionalKnapsack(struct Item it[100], int w, int n){
     }
     return p;
 }
+// 30 -- > [{40, 10}, {50, 20}]
 int main(){
     int n, w;
     struct Item it[100];

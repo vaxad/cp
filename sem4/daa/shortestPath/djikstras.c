@@ -35,12 +35,12 @@ void djikstra(int graph[100][100], int src,int n){
     int dist[100];
     int prev=0;
     int minInd;
+
     for(i=0;i<n;i++){
         visited[i]=false;
         dist[i]=999;  //INF
     }
 
-    // visited[src]=true;
     dist[src]=0;
     for(int i=0;i<n;i++){
         minInd=minIndex(dist, visited, n);
@@ -65,7 +65,7 @@ int main(){
     printf("DJIKSTRA'S ALGORITHM\n");
     printf("enter number of vertices: ");
     scanf("%d",&n);
-
+    //  1 source se sab nodes tak ka shortest path
     printf("enter adjacency matrix(0 for no edge):\n");
     for(i=0;i<n;i++){
         for(j=0;j<n;j++){

@@ -23,9 +23,10 @@ void sos(int arr[100], bool selected[100], int s, int n,int i){
         return;
     }
     if(i==n)return;
-
+    //select nai karne ka call
     sos(arr, selected, s, n, i+1);
 
+    //select karne ka call
     if(arr[i]<=s){
         selected[i]=true;
         sos(arr, selected, s-arr[i], n, i+1);

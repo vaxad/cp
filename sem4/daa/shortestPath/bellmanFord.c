@@ -25,9 +25,9 @@ int calculateEdges(int graph[100][100],int edge[3][100], int n){
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
             if(graph[i][j]){
-                edge[0][count]=i;
-                edge[1][count]=j;
-                edge[2][count]=graph[i][j];
+                edge[0][count]=i; //source vertex
+                edge[1][count]=j; //destination vertex
+                edge[2][count]=graph[i][j]; // weight of edge
                 printf("{ %d, %d, %d}\n", i, j, graph[i][j]);
                 count++;
             }

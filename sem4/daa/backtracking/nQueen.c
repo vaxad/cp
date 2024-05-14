@@ -12,8 +12,8 @@ void printBoard(int board[100][100], int n){
 }
 
 bool isSafe(int board[100][100], int n, int r, int c){
-    for(int i=0;i<c;i++){
-        if(board[r][i])return false;
+    for(int i=0;i<r;i++){
+        if(board[i][c])return false;
     }
     for(int i=r, j=c;i>=0&&j>=0;i--, j--){
         if(board[i][j])return false;
@@ -24,16 +24,16 @@ bool isSafe(int board[100][100], int n, int r, int c){
     return true;
 }
 
-bool nQueen(int board[100][100], int n, int col){
-    if(col>=n)return true;
+bool nQueen(int board[100][100], int n, int row){
+    if(row>=n)return true;
 
-    for(int r=0;r<n;r++){
-        if(isSafe(board, n,r,col)){
-            board[r][col]=1;
-            if(nQueen(board,n, col+1)){
+    for(int c=0;c<n;c++){
+        if(isSafe(board, n,row,c)){
+            board[row][c]=1;
+            if(nQueen(board,n, row+1)){
                 return true;
             }else{
-                board[r][col]=0;
+                board[row][c]=0;
             }
         }
     }

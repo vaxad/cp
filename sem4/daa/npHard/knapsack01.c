@@ -12,7 +12,7 @@ int knapsack01(struct Item it[100], int w, int n){
     // printf("w = %d, n = %d\n",w,n);
     if(n==0 || w==0)    //max weight exhausted OR elements over
         return 0;
-
+    // 3 4
     if(w<it[n-1].w)
         return knapsack01(it, w, n-1);      //current element's weight > remaining weight capacity
     else

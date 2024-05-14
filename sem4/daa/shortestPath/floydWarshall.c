@@ -31,12 +31,12 @@ void floydwarshall(int graph[100][100],int n){
     for(i=0;i<n;i++){
         visited[i]=false;
         for(j=0;j<n;j++){
-            dist[i][j]=(i==j?0:graph[i][j]?graph[i][j]:999);  //INF
+            dist[i][j]=(i==j?0:(graph[i][j]?graph[i][j]:999));  //INF
         }
     }
-
+    // all vertex se all vertex tak 0->[0 , 3, 8] 1->[9, 0, 3] 2->[1, 4, 0]
     printGraph(dist, n);
-
+    // 3->4 (12) (3->1 [4] 1->4 [6]) 
     k=0;
     while(k<n){
         for(i=0;i<n;i++){
