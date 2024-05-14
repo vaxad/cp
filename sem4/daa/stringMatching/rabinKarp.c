@@ -2,13 +2,12 @@
 #include<string.h>
 #include<stdbool.h>
 #include<math.h>
-#include <time.h>
 
 int calcHash(char* s, int n){
     int sum=0;
     // printf("%s (n=%d)\n",s, n);
     for(int i=0;i<n;i++){
-        sum+=((int)pow(26, n-i-1)*(s[i]-'a'));
+        sum+=((int)pow(26, n-i-1)*(s[i]-'a')); //4-0-1 26^3 ^2 ^1 ^0 a --> 0 'a'-'a' ==>0 'b'-'a'-->1
         // printf("pow:%d, sum: %d\n", (int)pow(26, n-i-1),sum);
     }
     // printf("hash for %s from 0 to %d: %d\n",s,n-1,sum);
@@ -57,7 +56,5 @@ int main(){
         printf("PATTERN NOT FOUND!\n");
     else
         printf("PATTERN FOUND AT INDEX: %d\n", ind);
-    int timestamp = time(NULL);
-    printf("%d", timestamp);
     return 0;
 }
